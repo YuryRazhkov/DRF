@@ -5,7 +5,7 @@ import UserList from "./components/UseList";
 import axios from 'axios'
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
-import Navbar from "./components/Menu";
+
 
 
 class App extends React.Component {
@@ -41,6 +41,7 @@ class App extends React.Component {
                             <div>
                              <Footer/>
                      </div>
+
 
                 </div>
 

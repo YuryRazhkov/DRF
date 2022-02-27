@@ -19,9 +19,12 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from userapp.views import UserViewSet
 
+from todonotes.views import ProjectViewSet, ToDoViewSet
 
 router = DefaultRouter()
 router.register('users', UserViewSet)
+router.register('Projects', ProjectViewSet)
+router.register('ToDo', ToDoViewSet)
 
 
 urlpatterns = [
