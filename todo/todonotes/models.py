@@ -9,6 +9,9 @@ class Project(models.Model):
     user = models.ManyToManyField(User)
     rep_link = models.CharField(max_length=500)
 
+    def __str__(self):
+        return f'{self.pk} - {self.project_name}'
+
 
 class ToDo(models.Model):  # what needs o be done on the project
     project_id = models.ForeignKey(Project, on_delete=models.CASCADE)
