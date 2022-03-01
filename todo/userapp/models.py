@@ -3,7 +3,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-   email = models.EmailField('email address', blank=True, unique=True)
+    email = models.EmailField('email address', blank=True, unique=True)
 
-
-
+    def __str__(self):
+        return self.username
