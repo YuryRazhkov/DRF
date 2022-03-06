@@ -19,12 +19,18 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from userapp.views import UserViewSet
 
+from todonotes.views import ProjectViewSet, ToDoViewSet
 
 router = DefaultRouter()
 router.register('users', UserViewSet)
+router.register('Projects', ProjectViewSet)
+router.register('ToDo', ToDoViewSet)
+# filter_router = DefaultRouter()
+# filter_router.register('param', views.ArticleParamFilterViewSet)
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('admin/', admin.site.urls, name='admin'),
+    path('api/', include(router.urls), name='api'),
+    # path('filters/', include(filter_router.urls)),
 ]
