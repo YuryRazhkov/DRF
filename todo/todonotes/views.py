@@ -11,13 +11,13 @@ from .serializer import ProjectModelSerializer, ToDoModelSerializer
 from .models import Project, ToDo
 
 
-class ProjectPagination(PageNumberPagination):
-    page_size = 20
+# class ProjectPagination(PageNumberPagination):
+#     page_size = 20
 
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectModelSerializer
     queryset = Project.objects.all()
-    pagination_class = ProjectPagination
+    # pagination_class = ProjectPagination
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
 
     def get_queryset(self):
@@ -29,13 +29,13 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
 
 
-class ToDoPagination(PageNumberPagination):
-    page_size = 10
+# class ToDoPagination(PageNumberPagination):
+#     page_size = 10
 
 class ToDoViewSet(viewsets.ModelViewSet):
     serializer_class = ToDoModelSerializer
     queryset = ToDo.objects.all()
-    pagination_class = ToDoPagination
+    # pagination_class = ToDoPagination
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
 
     def destroy(self, request, pk=None):
