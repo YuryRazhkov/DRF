@@ -16,7 +16,7 @@ const TodoItem = ({note}) => {
 
 const TodoList = ({todo}) => {
     return (
-        <table className="table">
+        <table className="table-bordered">
             <tr>
                 <th>project_id</th>|
                 <th>body</th>|
