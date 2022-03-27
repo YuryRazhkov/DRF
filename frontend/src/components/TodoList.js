@@ -22,13 +22,12 @@ const TodoList = ({todo}) => {
                 <th>body</th>|
                 <th>create_date</th>|
                 <th>update_date</th>|
-                <th>user</th>|
+                <th>user</th>
                 <th>is_done</th>|
             </tr>
             {todo.map((note) => <TodoItem note={note}/>)}
         </table>
     )
 }
-
 
 export default TodoList
