@@ -1,8 +1,10 @@
 from django.test import TestCase
+from mixer.backend.django import mixer
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, APIClient, APITestCase
-
+# from ..todonotes.models import Project
 from .views import *
+
 
 
 class TestUsersApi(TestCase):
@@ -32,6 +34,12 @@ class TestUsersApi(TestCase):
 
 
 class TestUsersAPITestCase(APITestCase):
+    def setUp(self) -> None:
+        self.user = mixer.blend(User)
+        # self.project = mixer.blend(Project)
+        self.admin = User.objects.create_superuser('123asdfgh', email='test@mail.com', password='qwerty')
+
+
     def test_get_list(self):
         response = self.client.get('/api/users', follow=True)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -42,4 +50,8 @@ class TestUsersAPITestCase(APITestCase):
         self.client.login(username='qwer', password='qwer1234')
         response = self.client.get('/api/users', follow=True)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+
+
 
