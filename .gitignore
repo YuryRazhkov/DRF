@@ -1,3 +1,6 @@
 /venv/
 /.idea/
 /todo/db.sqlite3
+/todo/node_modules/
+/todo/package.json
+/todo/package-lock.json
