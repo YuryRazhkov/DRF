@@ -38,12 +38,12 @@ class Query(graphene.ObjectType):
 
     def resolve_all_projects(root, info):
         return Project.objects.all()
-    #
-    # def resolve_all_users(root, info):
-    #     return User.objects.all()
-    #
-    # def resolve_all_todo(root, info):
-    #     return ToDo.objects.all()
+
+    def resolve_all_users(root, info):
+        return User.objects.all()
+
+    def resolve_all_todo(root, info):
+        return ToDo.objects.all()
 
 
 

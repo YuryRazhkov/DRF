@@ -22,7 +22,7 @@ from rest_framework import permissions
 from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
 from userapp.views import UserViewSet
-
+from graphene_django.views import GraphQLView
 from todonotes.views import ProjectViewSet, ToDoViewSet
 
 router = DefaultRouter()
@@ -56,4 +56,5 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger')),
     path('swagger/<str:format>/', schema_view.without_ui()),
     path('redoc/', schema_view.with_ui('redoc')),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
 ]
