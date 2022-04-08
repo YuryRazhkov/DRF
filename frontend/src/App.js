@@ -33,11 +33,27 @@ class App extends React.Component {
     }
 
 
+        deleteToDo(id) {
+        let headers = this.getHeader()
+        console.log(id)
+        console.log(headers)
+        axios
+            .delete(`http://127.0.0.1:8000/api/ToDo/${id}`, {headers})
+            .then(response => {
+                // this.setState({
+                //     'todo': this.state.todo.filter((todo) => todo.id != id)
+                // })
+                this.getData()
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    }
+
+
     getData() {
-
          let headers = this.getHeader()
-
-
 
          axios.get('http://127.0.0.1:8000/api/users/', {headers})
             .then(response => {
@@ -137,7 +153,11 @@ class App extends React.Component {
                         <Routes>
                             <Route exact path ='/' element={ <UserList users={this.state.users} />} />}
                             <Route exact path ='/projects' element = { <ProjectList projects={this.state.projects}/>}/>}
-                            <Route exact path ='/todo' element = { <TodoList todo={this.state.todo}/>}/>}
+                            {/*<Route exact path ='/todo' element = { <TodoList todo={this.state.todo}/>}/>}*/}
+                            <Route exact path ='/todo' element = { <TodoList todo={this.state.todo} deleteToDo={(id)=>this.deleteToDo(id)} />} />
+
+
+
                             <Route exact path ='/login' element = { <LoginForm getToken={(login, password) => this.getToken(login, password)} />} />
                             <Route path="*" element = {<NotFound />} />
                         </Routes>
