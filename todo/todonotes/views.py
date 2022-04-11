@@ -38,12 +38,12 @@ class ToDoViewSet(viewsets.ModelViewSet):
     # pagination_class = ToDoPagination
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
 
-    def destroy(self, request, pk=None):
-        target_object = get_object_or_404(ToDo, pk=pk)
-        target_object.is_done = True
-        target_object.save()
-        serializer = ToDoModelSerializer(target_object)
-        return Response(serializer.data)
+    # def destroy(self, request, pk=None):
+    #     target_object = get_object_or_404(ToDo, pk=pk)
+    #     target_object.is_done = True
+    #     target_object.save()
+    #     serializer = ToDoModelSerializer(target_object)
+    #     return Response(serializer.data)
 
 
 
