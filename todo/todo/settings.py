@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'graphene_django'
 
-
-
 ]
 
 MIDDLEWARE = [
@@ -60,9 +58,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-]
+    # 'http://localhost:3000',
+    # 'http://127.0.0.1:3000',
+    # 'http://localhost:8000',
+    # 'http://127.0.0.1:8000',
+
+    'http://localhost',
+    'http://127.0.0.1',
+    'http://localhost:80',
+    'http://127.0.0.1:80',
+    ]
+
 
 
 ROOT_URLCONF = 'todo.urls'
@@ -70,7 +76,7 @@ ROOT_URLCONF = 'todo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / '..' / 'frontend' / 'build' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,6 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (BASE_DIR / '..' / 'frontend' / 'build' / 'static',)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -149,11 +156,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
 
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #
-    #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    #     'rest_framework.permissions.IsAuthenticated'
-    # ],
+    'DEFAULT_PERMISSION_CLASSES': [
+
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # 'rest_framework.permissions.IsAuthenticated'
+    ],
 
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 100

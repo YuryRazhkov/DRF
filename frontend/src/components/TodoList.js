@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 
 const TodoItem = ({note, deleteToDo}) => {
@@ -20,20 +21,25 @@ const TodoItem = ({note, deleteToDo}) => {
 
 const TodoList = ({todo, deleteToDo}) => {
     return (
-        <table className="table-bordered">
-            <tr>
-                <th>note_id</th>|
-                <th>project_id</th>|
-                <th>body</th>|
-                <th>create_date</th>|
-                <th>update_date</th>|
-                <th>user</th>|
-                <th>is_done</th>|
-                <th> delete </th>|
-            </tr>
-            {todo.map((note) => <TodoItem note={note} deleteToDo={deleteToDo}/>)}
+        <div>
+            <Link to="/todo/create">create</Link>
 
-        </table>
+        <table className="table-bordered">
+                <tr>
+                    <th>note_id</th>|
+                    <th>project_id</th>|
+                    <th>body</th>|
+                    <th>create_date</th>|
+                    <th>update_date</th>|
+                    <th>user</th>|
+                    <th>is_done</th>|
+                    <th> delete </th>|
+                </tr>
+                {todo.map((note) => <TodoItem note={note} deleteToDo={deleteToDo}/>)}
+
+            </table>
+
+        </div>
     )
 }
 
