@@ -1,6 +1,7 @@
 from .base import *
 
-DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -9,6 +10,6 @@ DATABASES = {
         'USER': 'yury',
         'PASSWORD': 'yury123',
         'HOST': 'localhost',
-        'PORT': '54326'
+        'PORT': '5432'
     }
 }
